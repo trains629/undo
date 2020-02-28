@@ -41,11 +41,11 @@ export default class Undo {
   }
 
   undo(){
-    return this.canUndo() ? this.list[--this.point] : undefined;
+    return this.canUndo() ? (this.list[--this.point]|| {})["value"] : undefined;
   }
 
   redo(){
-    return this.canRedo() ? this.list[++this.point] : undefined;
+    return this.canRedo() ? (this.list[++this.point]||{})["value"] : undefined;
   }
 
   checkPoint(point){

@@ -31,11 +31,9 @@ test('insert 7', () => {
 
 test('undo() 2 redo() 1', () => {
   expect(undo.canRedo()).toBe(false);
+  let value1 =undo.undo();
   undo.undo();
-  let value1 = undo.getValue();
-  undo.undo();
-  undo.redo();
-  expect(undo.getValue()).toBe(value1);
+  expect(undo.redo()).toBe(value1);
   expect(undo.canRedo()).toBe(true);
 })
 
@@ -44,8 +42,3 @@ test('insert() 1 length to 10', () => {
   undo.insert(9);
   expect(undo.getLength()).toBe(9);
 })
-
-
-
-
-
